@@ -29,7 +29,6 @@ int main(void){
   a = (int*)malloc(sizeof(int)*N+1);
   net = (double**)malloc(sizeof(double*)*N);
   for(int i = 0; i < N; i++) net[i] = (double*)malloc(sizeof(double)*N);
-  //vector<vector<int>> gen(GEN, vector<int>(N));
   while(fscanf(fp,"%d %d %lf",&s, &t, &dist)!=EOF) {
       net[s][t] = net[t][s] = dist;
   }
@@ -59,8 +58,6 @@ void func(double **g,int *a,int n){
   int i,j;
   if(n<2){
     a[N] = a[0];
-    //for(i=0;i<N+1;i++) printf("%d ",a[i]);
-    //printf("\n");
     distCal(g,a);
     return;
   }
@@ -83,11 +80,7 @@ void swap(int *a,int *b){
 void distCal(double **g,int *a){
   double dist = 0;
   int i;
-  //for(i=0;i<N;i++) printf("%d-->%d\n",a[i],a[i+1]);
-
   for(i=0;i<N;i++) dist = dist+ g[a[i]][a[i+1]];
-  //for(i=0;i<N+1;i++) printf("%d ",a[i]);
-  //printf("距離:%d\n",dist);
   min = mini(min,dist);
   return;
 }
